@@ -32,7 +32,5 @@ features[features_overrides][] = variable.panels_page_allowed_types.value|custom
 features[features_overrides][] = variable.panels_page_default.value|custom
 features[page_manager_pages][] = club_search_page
 features[search_api_index][] = club_index
-features[variable][] = menu_options_gsb_club
-features[variable][] = menu_parent_gsb_club
 features[views_view][] = club_filters
 features[views_view][] = search_clubs
