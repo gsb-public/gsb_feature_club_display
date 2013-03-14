@@ -23,4 +23,4 @@ projects[views_load_more][download][url] = http://git.drupal.org/project/views_l
 projects[views_load_more][download][revision] = 2f367c5
 projects[views_load_more][download][branch] = 7.x-1.x
 projects[views_load_more][subdir] = contrib
-projects[views_load_more][patch][1923870] = http://drupal.org/files/views_load_more-issue-adding-back-to-top-link.patch
+projects[views_load_more][patch][1923870] = http://drupal.org/files/views_load_more-adding_back_to_the_top_link_issue-1923870-2.patch
