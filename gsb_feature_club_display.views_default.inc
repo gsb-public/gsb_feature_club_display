@@ -86,7 +86,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['field_club_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_club_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_club_image']['settings'] = array(
-    'image_style' => 'gsb_image_small',
+    'image_style' => '270x158',
     'image_link' => '',
   );
   /* Sort criterion: Content: Title */
@@ -167,7 +167,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['field_club_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_club_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_club_image']['settings'] = array(
-    'image_style' => 'gsb_image_small',
+    'image_style' => '270x158',
     'image_link' => '',
   );
   /* Field: Content: URL */
@@ -391,7 +391,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['field_club_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_club_image']['type'] = 'fancybox';
   $handler->display->display_options['fields']['field_club_image']['settings'] = array(
-    'fancybox_image_style_content' => 'gsb_image_small',
+    'fancybox_image_style_content' => '270x158',
     'fancybox_image_style_fancybox' => 'large',
     'fancybox_gallery' => 'post',
     'fancybox_gallery_custom' => '',
