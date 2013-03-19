@@ -61,7 +61,7 @@ function gsb_feature_club_display_default_page_manager_pages() {
         'identifier' => 'Query string value',
         'keyword' => 'Keywords',
         'name' => 'query_string',
-        'key' => 'keywords',
+        'key' => 'keyword',
         'fallback_value' => '',
         'id' => 1,
       ),
@@ -116,7 +116,7 @@ function gsb_feature_club_display_default_page_manager_pages() {
     $pane->pid = 'new-2';
     $pane->panel = 'contentmain';
     $pane->type = 'block';
-    $pane->subtype = 'views--exp-search_clubs-club_search';
+    $pane->subtype = 'views--exp-clubs_search-search_club';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -173,7 +173,7 @@ function gsb_feature_club_display_default_page_manager_pages() {
     $pane->pid = 'new-4';
     $pane->panel = 'contentmain';
     $pane->type = 'views_panes';
-    $pane->subtype = 'search_clubs-club_search';
+    $pane->subtype = 'clubs_search-search_club';
     $pane->shown = TRUE;
     $pane->access = array(
       'plugins' => array(
