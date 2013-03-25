@@ -305,7 +305,7 @@ function gsb_feature_club_display_views_default_views() {
   $view->name = 'clubs_search';
   $view->description = '';
   $view->tag = 'default';
-  $view->base_table = 'apachesolr__solr';
+  $view->base_table = 'apachesolr__acquia_search_server_1';
   $view->human_name = 'Clubs search';
   $view->core = 7;
   $view->api_version = '3.0';
@@ -354,14 +354,14 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
   /* Field: Apache Solr: entity_id */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
-  $handler->display->display_options['fields']['entity_id']['table'] = 'apachesolr__solr';
+  $handler->display->display_options['fields']['entity_id']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['entity_id']['field'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['label'] = '';
   $handler->display->display_options['fields']['entity_id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id']['element_label_colon'] = FALSE;
   /* Field: Apache Solr: label */
   $handler->display->display_options['fields']['label']['id'] = 'label';
-  $handler->display->display_options['fields']['label']['table'] = 'apachesolr__solr';
+  $handler->display->display_options['fields']['label']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['label']['field'] = 'label';
   $handler->display->display_options['fields']['label']['label'] = '';
   $handler->display->display_options['fields']['label']['alter']['make_link'] = TRUE;
@@ -369,7 +369,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
   /* Field: Apache Solr: ts_description */
   $handler->display->display_options['fields']['ts_description']['id'] = 'ts_description';
-  $handler->display->display_options['fields']['ts_description']['table'] = 'apachesolr__solr';
+  $handler->display->display_options['fields']['ts_description']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['ts_description']['field'] = 'ts_description';
   $handler->display->display_options['fields']['ts_description']['label'] = '';
   $handler->display->display_options['fields']['ts_description']['alter']['max_length'] = '300';
@@ -377,14 +377,14 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['ts_description']['element_label_colon'] = FALSE;
   /* Field: Apache Solr: ss_url */
   $handler->display->display_options['fields']['ss_url']['id'] = 'ss_url';
-  $handler->display->display_options['fields']['ss_url']['table'] = 'apachesolr__solr';
+  $handler->display->display_options['fields']['ss_url']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['ss_url']['field'] = 'ss_url';
   $handler->display->display_options['fields']['ss_url']['label'] = '';
   $handler->display->display_options['fields']['ss_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['ss_url']['element_default_classes'] = FALSE;
   /* Filter criterion: Apache Solr: Search */
   $handler->display->display_options['filters']['keyword']['id'] = 'keyword';
-  $handler->display->display_options['filters']['keyword']['table'] = 'apachesolr__solr';
+  $handler->display->display_options['filters']['keyword']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['filters']['keyword']['field'] = 'keyword';
   $handler->display->display_options['filters']['keyword']['exposed'] = TRUE;
   $handler->display->display_options['filters']['keyword']['expose']['operator_id'] = '';
@@ -398,6 +398,11 @@ function gsb_feature_club_display_views_default_views() {
     4 => 0,
     5 => 0,
   );
+  /* Filter criterion: Apache Solr: bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'apachesolr__acquia_search_server_1';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['value'] = 'gsb_club';
 
   /* Display: search-club-list */
   $handler = $view->new_display('panel_pane', 'search-club-list', 'search_club');
