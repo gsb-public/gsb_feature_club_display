@@ -54,7 +54,13 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_plugin'] = 'ds';
+  $handler->display->display_options['row_options']['alternating'] = 0;
+  $handler->display->display_options['row_options']['grouping'] = 0;
+  $handler->display->display_options['row_options']['advanced'] = 0;
+  $handler->display->display_options['row_options']['delta_fieldset']['delta_fields'] = array();
+  $handler->display->display_options['row_options']['grouping_fieldset']['group_field'] = 'node|title';
+  $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'teaser';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -68,27 +74,6 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['field_club_category']['field'] = 'field_club_category';
   $handler->display->display_options['fields']['field_club_category']['label'] = '';
   $handler->display->display_options['fields']['field_club_category']['element_label_colon'] = FALSE;
-  /* Field: Content: Description */
-  $handler->display->display_options['fields']['field_club_description']['id'] = 'field_club_description';
-  $handler->display->display_options['fields']['field_club_description']['table'] = 'field_data_field_club_description';
-  $handler->display->display_options['fields']['field_club_description']['field'] = 'field_club_description';
-  $handler->display->display_options['fields']['field_club_description']['label'] = '';
-  $handler->display->display_options['fields']['field_club_description']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_club_description']['type'] = 'text_trimmed';
-  $handler->display->display_options['fields']['field_club_description']['settings'] = array(
-    'trim_length' => '600',
-  );
-  /* Field: Content: Club Image */
-  $handler->display->display_options['fields']['field_club_image']['id'] = 'field_club_image';
-  $handler->display->display_options['fields']['field_club_image']['table'] = 'field_data_field_club_image';
-  $handler->display->display_options['fields']['field_club_image']['field'] = 'field_club_image';
-  $handler->display->display_options['fields']['field_club_image']['label'] = '';
-  $handler->display->display_options['fields']['field_club_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_club_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_club_image']['settings'] = array(
-    'image_style' => '270x158',
-    'image_link' => '',
-  );
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -105,7 +90,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'gsb_club' => 'gsb_club',
+    'club' => 'club',
   );
   /* Filter criterion: Content: Club Category (field_club_category) */
   $handler->display->display_options['filters']['field_club_category_tid']['id'] = 'field_club_category_tid';
@@ -149,33 +134,6 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['field_club_category']['field'] = 'field_club_category';
   $handler->display->display_options['fields']['field_club_category']['label'] = '';
   $handler->display->display_options['fields']['field_club_category']['element_label_colon'] = FALSE;
-  /* Field: Content: Description */
-  $handler->display->display_options['fields']['field_club_description']['id'] = 'field_club_description';
-  $handler->display->display_options['fields']['field_club_description']['table'] = 'field_data_field_club_description';
-  $handler->display->display_options['fields']['field_club_description']['field'] = 'field_club_description';
-  $handler->display->display_options['fields']['field_club_description']['label'] = '';
-  $handler->display->display_options['fields']['field_club_description']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_club_description']['type'] = 'text_trimmed';
-  $handler->display->display_options['fields']['field_club_description']['settings'] = array(
-    'trim_length' => '600',
-  );
-  /* Field: Content: Club Image */
-  $handler->display->display_options['fields']['field_club_image']['id'] = 'field_club_image';
-  $handler->display->display_options['fields']['field_club_image']['table'] = 'field_data_field_club_image';
-  $handler->display->display_options['fields']['field_club_image']['field'] = 'field_club_image';
-  $handler->display->display_options['fields']['field_club_image']['label'] = '';
-  $handler->display->display_options['fields']['field_club_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_club_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_club_image']['settings'] = array(
-    'image_style' => '270x158',
-    'image_link' => '',
-  );
-  /* Field: Content: URL */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -190,7 +148,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'gsb_club' => 'gsb_club',
+    'club' => 'club',
   );
   /* Filter criterion: Content: Club Category (field_club_category) */
   $handler->display->display_options['filters']['field_club_category_tid']['id'] = 'field_club_category_tid';
@@ -260,7 +218,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'gsb_club' => 'gsb_club',
+    'club' => 'club',
   );
   $handler->display->display_options['pane_category']['name'] = 'GSB panes';
   $handler->display->display_options['pane_category']['weight'] = '0';
@@ -352,14 +310,14 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'Sorry, no clubs found';
   $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
-  /* Field: Apache Solr: entity_id */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['entity_id']['field'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['label'] = '';
   $handler->display->display_options['fields']['entity_id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id']['element_label_colon'] = FALSE;
-  /* Field: Apache Solr: label */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['label']['id'] = 'label';
   $handler->display->display_options['fields']['label']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['label']['field'] = 'label';
@@ -367,7 +325,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['label']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['label']['alter']['path'] = 'node/[entity_id] ';
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
-  /* Field: Apache Solr: ts_description */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['ts_description']['id'] = 'ts_description';
   $handler->display->display_options['fields']['ts_description']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['ts_description']['field'] = 'ts_description';
@@ -375,14 +333,14 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['ts_description']['alter']['max_length'] = '300';
   $handler->display->display_options['fields']['ts_description']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['ts_description']['element_label_colon'] = FALSE;
-  /* Field: Apache Solr: ss_url */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['ss_url']['id'] = 'ss_url';
   $handler->display->display_options['fields']['ss_url']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['ss_url']['field'] = 'ss_url';
   $handler->display->display_options['fields']['ss_url']['label'] = '';
   $handler->display->display_options['fields']['ss_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['ss_url']['element_default_classes'] = FALSE;
-  /* Filter criterion: Apache Solr: Search */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['keyword']['id'] = 'keyword';
   $handler->display->display_options['filters']['keyword']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['filters']['keyword']['field'] = 'keyword';
@@ -398,7 +356,7 @@ function gsb_feature_club_display_views_default_views() {
     4 => 0,
     5 => 0,
   );
-  /* Filter criterion: Apache Solr: bundle */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
   $handler->display->display_options['filters']['bundle']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
