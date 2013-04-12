@@ -5,3 +5,20 @@
  */
 
 include_once 'gsb_feature_club_display.features.inc';
+
+
+/**
+ * Implements hook_apachesolr_index_document_build_node().
+ *
+ */
+function gsb_feature_club_display_apachesolr_index_document_build_node(ApacheSolrDocument $document, $entity, $env_id) {
+  if ($entity->type == 'club') {
+    if (!empty($entity->field_body)) {
+      $document->setMultiValue('ts_field_body', $entity->field_body['und'][0]['value']);
+    }
+
+    if (!empty($entity->field_link_single)) {
+      $document->setMultiValue('ss_field_link_single', $entity->field_link_single['und'][0]['url']);
+    }
+  }
+}

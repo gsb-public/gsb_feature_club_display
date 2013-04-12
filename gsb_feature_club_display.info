@@ -22,7 +22,6 @@ dependencies[] = views_content
 dependencies[] = views_load_more
 datestamp = 1363876455
 features[ctools][] = ds:ds:1
-features[ctools][] = facetapi:facetapi_defaults:1
 features[ctools][] = page_manager:pages_default:1
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
