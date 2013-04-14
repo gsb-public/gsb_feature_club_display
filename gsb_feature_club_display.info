@@ -10,7 +10,6 @@ dependencies[] = ctools
 dependencies[] = ctools_query_string_context
 dependencies[] = ds
 dependencies[] = entity
-dependencies[] = entity_view_mode
 dependencies[] = features
 dependencies[] = gsb_feature_club_ct
 dependencies[] = gsb_search_server
