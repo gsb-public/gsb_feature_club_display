@@ -87,7 +87,7 @@ function gsb_feature_club_display_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Alphabetical by Club Name for all clubs';
+  $display->title = 'Clubs';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
