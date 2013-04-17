@@ -26,6 +26,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['bef'] = array(
@@ -67,12 +68,6 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Club Category */
-  $handler->display->display_options['fields']['field_club_category']['id'] = 'field_club_category';
-  $handler->display->display_options['fields']['field_club_category']['table'] = 'field_data_field_club_category';
-  $handler->display->display_options['fields']['field_club_category']['field'] = 'field_club_category';
-  $handler->display->display_options['fields']['field_club_category']['label'] = '';
-  $handler->display->display_options['fields']['field_club_category']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -91,22 +86,11 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'club' => 'club',
   );
-  /* Filter criterion: Content: Club Category (field_club_category) */
-  $handler->display->display_options['filters']['field_club_category_tid']['id'] = 'field_club_category_tid';
-  $handler->display->display_options['filters']['field_club_category_tid']['table'] = 'field_data_field_club_category';
-  $handler->display->display_options['filters']['field_club_category_tid']['field'] = 'field_club_category_tid';
-  $handler->display->display_options['filters']['field_club_category_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_club_category_tid']['expose']['operator_id'] = 'field_club_category_tid_op';
-  $handler->display->display_options['filters']['field_club_category_tid']['expose']['label'] = 'Club Category (field_club_category)';
-  $handler->display->display_options['filters']['field_club_category_tid']['expose']['operator'] = 'field_club_category_tid_op';
-  $handler->display->display_options['filters']['field_club_category_tid']['expose']['identifier'] = 'field_club_category_tid';
-  $handler->display->display_options['filters']['field_club_category_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_club_category_tid']['vocabulary'] = 'club_category';
 
   /* Display: club-list */
   $handler = $view->new_display('panel_pane', 'club-list', 'club_list');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'view-club-filters designed-box';
+  $handler->display->display_options['css_class'] = 'view-list-teaser';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
@@ -171,9 +155,10 @@ function gsb_feature_club_display_views_default_views() {
     2 => '2',
     1 => 0,
     3 => 0,
-    5 => 0,
     4 => 0,
+    5 => 0,
   );
+  $handler->display->display_options['filters']['field_club_category_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_club_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_club_category_tid']['vocabulary'] = 'club_category';
   $handler->display->display_options['inherit_panels_path'] = '1';
@@ -189,8 +174,6 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['defaults']['use_more_text'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'All clubs';
   $handler->display->display_options['defaults']['link_display'] = FALSE;
-  $handler->display->display_options['link_display'] = 'custom_url';
-  $handler->display->display_options['link_url'] = 'club-search';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
@@ -278,7 +261,7 @@ function gsb_feature_club_display_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['css_class'] = 'view-club-filters designed-box';
+  $handler->display->display_options['css_class'] = 'view-list-search';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';

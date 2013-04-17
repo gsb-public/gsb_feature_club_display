@@ -15,7 +15,7 @@ function gsb_feature_club_display_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Club search page';
   $page->admin_description = '';
-  $page->path = 'club-search/!keywords';
+  $page->path = 'stanford-gsb-experience/life-stanford/club-activities/!keywords';
   $page->access = array(
     'plugins' => array(
       0 => array(
