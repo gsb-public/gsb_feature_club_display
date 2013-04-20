@@ -18,12 +18,12 @@ function gsb_feature_club_display_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'teaser';
   $ds_fieldsetting->settings = array(
     'title' => array(
-      'weight' => '0',
+      'weight' => '-1',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
-        'link' => '0',
-        'wrapper' => 'h4',
+        'link' => '1',
+        'wrapper' => 'h5',
         'class' => 'club-title',
         'ft' => array(),
         'conditions' => array(),
