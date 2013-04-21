@@ -77,13 +77,15 @@ function gsb_feature_club_display_default_page_manager_pages() {
     'panels_breadcrumbs_home' => 1,
   );
   $display = new panels_display();
-  $display->layout = 'gsb-standard-page-three';
+  $display->layout = 'gsb-standard-page-two';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'sidebar' => NULL,
       'contentmain' => NULL,
+      'main' => NULL,
+      'quicklinks' => NULL,
     ),
   );
   $display->cache = array();
@@ -92,7 +94,7 @@ function gsb_feature_club_display_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-1';
-    $pane->panel = 'contentmain';
+    $pane->panel = 'main';
     $pane->type = 'block';
     $pane->subtype = 'views--exp-club_filters-club_list';
     $pane->shown = TRUE;
@@ -111,10 +113,10 @@ function gsb_feature_club_display_default_page_manager_pages() {
     $pane->position = 0;
     $pane->locks = array();
     $display->content['new-1'] = $pane;
-    $display->panels['contentmain'][0] = 'new-1';
+    $display->panels['main'][0] = 'new-1';
     $pane = new stdClass();
     $pane->pid = 'new-2';
-    $pane->panel = 'contentmain';
+    $pane->panel = 'main';
     $pane->type = 'block';
     $pane->subtype = 'views--exp-clubs_search-search_club';
     $pane->shown = TRUE;
@@ -133,45 +135,10 @@ function gsb_feature_club_display_default_page_manager_pages() {
     $pane->position = 1;
     $pane->locks = array();
     $display->content['new-2'] = $pane;
-    $display->panels['contentmain'][1] = 'new-2';
+    $display->panels['main'][1] = 'new-2';
     $pane = new stdClass();
     $pane->pid = 'new-3';
-    $pane->panel = 'contentmain';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'context_exists',
-          'settings' => array(
-            'exists' => '1',
-          ),
-          'context' => 'context_query_string_1',
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'Search for "%Keywords:html_safe"',
-      'body' => '',
-      'format' => 'panopoly_wysiwyg_text',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $display->content['new-3'] = $pane;
-    $display->panels['contentmain'][2] = 'new-3';
-    $pane = new stdClass();
-    $pane->pid = 'new-4';
-    $pane->panel = 'contentmain';
+    $pane->panel = 'main';
     $pane->type = 'views_panes';
     $pane->subtype = 'clubs_search-search_club';
     $pane->shown = TRUE;
@@ -210,13 +177,13 @@ function gsb_feature_club_display_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 2;
     $pane->locks = array();
-    $display->content['new-4'] = $pane;
-    $display->panels['contentmain'][3] = 'new-4';
+    $display->content['new-3'] = $pane;
+    $display->panels['main'][2] = 'new-3';
     $pane = new stdClass();
-    $pane->pid = 'new-5';
-    $pane->panel = 'contentmain';
+    $pane->pid = 'new-4';
+    $pane->panel = 'main';
     $pane->type = 'views_panes';
     $pane->subtype = 'club_filters-club_list';
     $pane->shown = TRUE;
@@ -255,10 +222,10 @@ function gsb_feature_club_display_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 3;
     $pane->locks = array();
-    $display->content['new-5'] = $pane;
-    $display->panels['contentmain'][4] = 'new-5';
+    $display->content['new-4'] = $pane;
+    $display->panels['main'][3] = 'new-4';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

@@ -191,7 +191,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['arguments']['field_club_category_tid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['field_club_category_tid']['validate']['type'] = 'taxonomy_term';
   $handler->display->display_options['arguments']['field_club_category_tid']['validate_options']['vocabularies'] = array(
-    'panopoly_categories' => 'panopoly_categories',
+    'club_category' => 'club_category',
   );
   $handler->display->display_options['arguments']['field_club_category_tid']['validate_options']['type'] = 'convert';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -212,6 +212,25 @@ function gsb_feature_club_display_views_default_views() {
   );
   $handler->display->display_options['pane_category']['name'] = 'GSB panes';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 0;
+  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 0;
+  $handler->display->display_options['argument_input'] = array(
+    'field_club_category_tid' => array(
+      'type' => 'user',
+      'context' => 'entity:field_collection_item.field-cta-action',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Club Category',
+    ),
+  );
 
   /* Display: clubs-by-id */
   $handler = $view->new_display('panel_pane', 'clubs-by-id', 'clubs_by_id');
@@ -233,7 +252,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
-    'gsb_club' => 'gsb_club',
+    'club' => 'club',
   );
   $handler->display->display_options['pane_category']['name'] = 'GSB Panes';
   $handler->display->display_options['pane_category']['weight'] = '0';
@@ -298,38 +317,31 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'Sorry, no clubs found';
+  $handler->display->display_options['empty']['area']['content'] = 'no results found.';
   $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
-  $handler->display->display_options['fields']['entity_id']['table'] = 'apachesolr__acquia_search_server_1';
-  $handler->display->display_options['fields']['entity_id']['field'] = 'entity_id';
-  $handler->display->display_options['fields']['entity_id']['label'] = '';
-  $handler->display->display_options['fields']['entity_id']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['entity_id']['element_label_colon'] = FALSE;
-  /* Field: Broken/missing handler */
+  /* Field: Apache Solr: ss_field_link_single */
+  $handler->display->display_options['fields']['ss_field_link_single']['id'] = 'ss_field_link_single';
+  $handler->display->display_options['fields']['ss_field_link_single']['table'] = 'apachesolr__acquia_search_server_1';
+  $handler->display->display_options['fields']['ss_field_link_single']['field'] = 'ss_field_link_single';
+  $handler->display->display_options['fields']['ss_field_link_single']['label'] = '';
+  $handler->display->display_options['fields']['ss_field_link_single']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['ss_field_link_single']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['ss_field_link_single']['element_default_classes'] = FALSE;
+  /* Field: Apache Solr: label */
   $handler->display->display_options['fields']['label']['id'] = 'label';
   $handler->display->display_options['fields']['label']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['label']['field'] = 'label';
   $handler->display->display_options['fields']['label']['label'] = '';
   $handler->display->display_options['fields']['label']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['label']['alter']['path'] = 'node/[entity_id] ';
+  $handler->display->display_options['fields']['label']['alter']['path'] = '[ss_field_link_single]';
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['ts_description']['id'] = 'ts_description';
-  $handler->display->display_options['fields']['ts_description']['table'] = 'apachesolr__acquia_search_server_1';
-  $handler->display->display_options['fields']['ts_description']['field'] = 'ts_description';
-  $handler->display->display_options['fields']['ts_description']['label'] = '';
-  $handler->display->display_options['fields']['ts_description']['alter']['max_length'] = '300';
-  $handler->display->display_options['fields']['ts_description']['alter']['trim'] = TRUE;
-  $handler->display->display_options['fields']['ts_description']['element_label_colon'] = FALSE;
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['ss_url']['id'] = 'ss_url';
-  $handler->display->display_options['fields']['ss_url']['table'] = 'apachesolr__acquia_search_server_1';
-  $handler->display->display_options['fields']['ss_url']['field'] = 'ss_url';
-  $handler->display->display_options['fields']['ss_url']['label'] = '';
-  $handler->display->display_options['fields']['ss_url']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['ss_url']['element_default_classes'] = FALSE;
+  /* Field: Apache Solr: ts_field_body */
+  $handler->display->display_options['fields']['ts_field_body']['id'] = 'ts_field_body';
+  $handler->display->display_options['fields']['ts_field_body']['table'] = 'apachesolr__acquia_search_server_1';
+  $handler->display->display_options['fields']['ts_field_body']['field'] = 'ts_field_body';
+  $handler->display->display_options['fields']['ts_field_body']['label'] = '';
+  $handler->display->display_options['fields']['ts_field_body']['alter']['max_length'] = '300';
+  $handler->display->display_options['fields']['ts_field_body']['element_label_colon'] = FALSE;
   /* Filter criterion: Apache Solr: Search */
   $handler->display->display_options['filters']['keyword']['id'] = 'keyword';
   $handler->display->display_options['filters']['keyword']['table'] = 'apachesolr__acquia_search_server_1';
@@ -346,11 +358,11 @@ function gsb_feature_club_display_views_default_views() {
     4 => 0,
     5 => 0,
   );
-  /* Filter criterion: Broken/missing handler */
+  /* Filter criterion: Apache Solr: bundle */
   $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
   $handler->display->display_options['filters']['bundle']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
-  $handler->display->display_options['filters']['bundle']['value'] = 'gsb_club';
+  $handler->display->display_options['filters']['bundle']['value'] = 'club';
 
   /* Display: search-club-list */
   $handler = $view->new_display('panel_pane', 'search-club-list', 'search_club');
