@@ -18,15 +18,22 @@ function gsb_feature_club_display_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'teaser';
   $ds_fieldsetting->settings = array(
     'title' => array(
-      'weight' => '-1',
+      'weight' => '0',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
-        'link' => '1',
+        'link' => '0',
         'wrapper' => 'h5',
         'class' => 'club-title',
         'ft' => array(),
-        'conditions' => array(),
+        'conditions' => array(
+          0 => array(
+            'condition' => 'hide_not_empty',
+            'configuration' => array(
+              'target' => 'field_link_single',
+            ),
+          ),
+        ),
       ),
     ),
   );
@@ -52,11 +59,13 @@ function gsb_feature_club_display_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'title',
-        1 => 'field_body',
+        1 => 'field_link_single',
+        2 => 'field_body',
       ),
     ),
     'fields' => array(
       'title' => 'ds_content',
+      'field_link_single' => 'ds_content',
       'field_body' => 'ds_content',
     ),
     'classes' => array(),
