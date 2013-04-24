@@ -409,6 +409,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['label']['label'] = '';
   $handler->display->display_options['fields']['label']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['label']['alter']['path'] = '[ss_field_link_single]';
+  $handler->display->display_options['fields']['label']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
   /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['ts_field_body']['id'] = 'ts_field_body';
