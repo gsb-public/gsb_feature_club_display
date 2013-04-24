@@ -30,3 +30,10 @@ features[features_api][] = api:1
 features[page_manager_pages][] = club_search_page
 features[views_view][] = club_filters
 features[views_view][] = clubs_search
+
+
+; Information added by drush on 2013-04-24
+version = "master-dev"
+project = "gsb_feature_club_display"
+datestamp = "1366826748"
+
