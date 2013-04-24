@@ -93,7 +93,9 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['more_button_text'] = 'Show more';
   $handler->display->display_options['pager']['options']['use_go_to_top_link'] = 1;
+  $handler->display->display_options['pager']['options']['use_go_to_top_text'] = 'Back to the Top';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'ds';
   $handler->display->display_options['row_options']['alternating'] = 0;
@@ -380,7 +382,9 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['use_go_to_top_link'] = 0;
+  $handler->display->display_options['pager']['options']['more_button_text'] = 'Show more';
+  $handler->display->display_options['pager']['options']['use_go_to_top_link'] = 1;
+  $handler->display->display_options['pager']['options']['use_go_to_top_text'] = 'Back to the Top';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* No results behavior: Global: Text area */
@@ -390,7 +394,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'no results found.';
   $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
-  /* Field: Apache Solr: ss_field_link_single */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['ss_field_link_single']['id'] = 'ss_field_link_single';
   $handler->display->display_options['fields']['ss_field_link_single']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['ss_field_link_single']['field'] = 'ss_field_link_single';
@@ -398,7 +402,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['ss_field_link_single']['exclude'] = TRUE;
   $handler->display->display_options['fields']['ss_field_link_single']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['ss_field_link_single']['element_default_classes'] = FALSE;
-  /* Field: Apache Solr: label */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['label']['id'] = 'label';
   $handler->display->display_options['fields']['label']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['label']['field'] = 'label';
@@ -406,7 +410,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['label']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['label']['alter']['path'] = '[ss_field_link_single]';
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
-  /* Field: Apache Solr: ts_field_body */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['ts_field_body']['id'] = 'ts_field_body';
   $handler->display->display_options['fields']['ts_field_body']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['ts_field_body']['field'] = 'ts_field_body';
@@ -429,7 +433,7 @@ function gsb_feature_club_display_views_default_views() {
     4 => 0,
     5 => 0,
   );
-  /* Filter criterion: Apache Solr: bundle */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
   $handler->display->display_options['filters']['bundle']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
