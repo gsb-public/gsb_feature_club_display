@@ -22,3 +22,12 @@ function gsb_feature_club_display_apachesolr_index_document_build_node(ApacheSol
     }
   }
 }
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function gsb_feature_club_display_views_pre_render(&$view) {
+  if ($view->name == 'club_filters') {
+    $view->exposed_raw_input = array();
+  }
+}
