@@ -15,7 +15,7 @@ function gsb_feature_club_display_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Club search page';
   $page->admin_description = '';
-  $page->path = 'stanford-gsb-experience/life-stanford/club-activities/!keywords';
+  $page->path = 'stanford-gsb-experience/life-stanford/club-activities';
   $page->access = array(
     'plugins' => array(
       0 => array(
@@ -32,12 +32,7 @@ function gsb_feature_club_display_default_page_manager_pages() {
     'settings' => NULL,
   );
   $page->menu = array();
-  $page->arguments = array(
-    'keywords' => array(
-      'settings' => array(),
-      'identifier' => 'No context',
-    ),
-  );
+  $page->arguments = array();
   $page->conf = array(
     'admin_paths' => FALSE,
   );
@@ -118,50 +113,6 @@ function gsb_feature_club_display_default_page_manager_pages() {
     $pane->pid = 'new-2';
     $pane->panel = 'main';
     $pane->type = 'views_panes';
-    $pane->subtype = 'clubs_search-search_club';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'context_exists',
-          'settings' => array(
-            'exists' => '1',
-          ),
-          'context' => 'context_query_string_1',
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'widget_title' => NULL,
-      'items_per_page' => NULL,
-      'exposed' => array(
-        'sort_by' => NULL,
-        'sort_order' => NULL,
-      ),
-      'use_pager' => NULL,
-      'pager_id' => NULL,
-      'offset' => NULL,
-      'link_to_view' => NULL,
-      'more_link' => NULL,
-      'path' => NULL,
-      'view_settings' => 'fields',
-      'header_type' => 'none',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $display->content['new-2'] = $pane;
-    $display->panels['main'][1] = 'new-2';
-    $pane = new stdClass();
-    $pane->pid = 'new-3';
-    $pane->panel = 'main';
-    $pane->type = 'views_panes';
     $pane->subtype = 'club_filters-club_list';
     $pane->shown = TRUE;
     $pane->access = array(
@@ -198,15 +149,15 @@ function gsb_feature_club_display_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 1;
     $pane->locks = array();
-    $display->content['new-3'] = $pane;
-    $display->panels['main'][2] = 'new-3';
+    $display->content['new-2'] = $pane;
+    $display->panels['main'][1] = 'new-2';
     $pane = new stdClass();
-    $pane->pid = 'new-4';
+    $pane->pid = 'new-3';
     $pane->panel = 'quicklinks';
     $pane->type = 'block';
-    $pane->subtype = 'views--exp-clubs_search-search_club';
+    $pane->subtype = 'views--exp-club_filters-club_list';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -222,8 +173,8 @@ function gsb_feature_club_display_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-4'] = $pane;
-    $display->panels['quicklinks'][0] = 'new-4';
+    $display->content['new-3'] = $pane;
+    $display->panels['quicklinks'][0] = 'new-3';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

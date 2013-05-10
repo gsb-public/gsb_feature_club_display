@@ -59,12 +59,14 @@ function gsb_feature_club_display_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'title',
-        1 => 'field_link_single',
-        2 => 'field_body',
+        1 => 'field_search_field',
+        2 => 'field_link_single',
+        3 => 'field_body',
       ),
     ),
     'fields' => array(
       'title' => 'ds_content',
+      'field_search_field' => 'ds_content',
       'field_link_single' => 'ds_content',
       'field_body' => 'ds_content',
     ),
