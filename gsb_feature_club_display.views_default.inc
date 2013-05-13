@@ -167,7 +167,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['filters']['field_search_field_value']['id'] = 'field_search_field_value';
   $handler->display->display_options['filters']['field_search_field_value']['table'] = 'field_data_field_search_field';
   $handler->display->display_options['filters']['field_search_field_value']['field'] = 'field_search_field_value';
-  $handler->display->display_options['filters']['field_search_field_value']['operator'] = 'word';
+  $handler->display->display_options['filters']['field_search_field_value']['operator'] = 'contains';
   $handler->display->display_options['filters']['field_search_field_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['operator_id'] = 'field_search_field_value_op';
   $handler->display->display_options['filters']['field_search_field_value']['expose']['label'] = 'Search';
