@@ -19,7 +19,7 @@ dependencies[] = strongarm
 dependencies[] = views
 dependencies[] = views_content
 dependencies[] = views_load_more
-datestamp = 1368134969
+datestamp = 1368220766
 features[ctools][] = ds:ds:1
 features[ctools][] = page_manager:pages_default:1
 features[ctools][] = strongarm:strongarm:1
@@ -29,11 +29,3 @@ features[ds_layout_settings][] = node|club|teaser
 features[features_api][] = api:1
 features[page_manager_pages][] = club_search_page
 features[views_view][] = club_filters
-features[views_view][] = clubs_search
-
-
-; Information added by drush on 2013-04-24
-version = "master-dev"
-project = "gsb_feature_club_display"
-datestamp = "1366826748"
-
