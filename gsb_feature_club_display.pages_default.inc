@@ -17,16 +17,7 @@ function gsb_feature_club_display_default_page_manager_pages() {
   $page->admin_description = '';
   $page->path = 'stanford-gsb-experience/life-stanford/club-activities';
   $page->access = array(
-    'plugins' => array(
-      0 => array(
-        'name' => 'perm',
-        'settings' => array(
-          'perm' => 'search content',
-        ),
-        'context' => 'logged-in-user',
-        'not' => FALSE,
-      ),
-    ),
+    'plugins' => array(),
     'logic' => 'and',
     'type' => 'none',
     'settings' => NULL,
