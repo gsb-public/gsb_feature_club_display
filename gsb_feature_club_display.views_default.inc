@@ -202,7 +202,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'no results found.';
-  $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
+  $handler->display->display_options['empty']['area']['format'] = 'gsb_wysiwyg_text';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Tag (field_tag) */
   $handler->display->display_options['arguments']['field_tag_tid']['id'] = 'field_tag_tid';
