@@ -41,3 +41,35 @@ function gsb_feature_club_display_form_views_exposed_form_alter(&$form, &$form_s
     $form['search']['#attributes']['class'][] = 'ctools-auto-submit-exclude';
   }
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function gsb_feature_club_display_form_alter(&$form, &$form_state, $form_id) {
+
+  // Alter 'Club add by ID or tag' content pane settings form.
+  if ($form_id == 'views_content_views_panes_content_type_edit_form' && $form_state['pane']->subtype == 'club_filters-club_by_id_or_tag') {
+    $form['exposed']['club_filter_by'] = array(
+      '#type' => 'radios',
+      '#options' => array(
+        'nid' => 'Node ID',
+        'tid' => 'Term',
+      ),
+      '#default_value' => 'nid',
+      '#weight' => -100,
+    );
+
+    $form['exposed']['filter-nid']['#states'] = array(
+      'visible' => array(
+        ':input[name="exposed[club_filter_by]"]' => array('value' => 'nid'),
+      ),
+    );
+    // Change #id to apply #states.
+    $form['exposed']['filter-term_node_tid_depth']['#id'] = 'views-exposed-pane-tid';
+    $form['exposed']['filter-term_node_tid_depth']['#states'] = array(
+      'visible' => array(
+        ':input[name="exposed[club_filter_by]"]' => array('value' => 'tid'),
+      ),
+    );
+  }
+}
