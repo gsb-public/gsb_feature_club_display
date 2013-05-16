@@ -191,8 +191,6 @@ function gsb_feature_club_display_views_default_views() {
 
   /* Display: Club list */
   $handler = $view->new_display('panel_pane', 'Club list', 'club_list');
-  $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'view-list-teaser';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
@@ -243,8 +241,6 @@ function gsb_feature_club_display_views_default_views() {
 
   /* Display: Club by id or tag */
   $handler = $view->new_display('panel_pane', 'Club by id or tag', 'club_by_id_or_tag');
-  $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'view-list-teaser';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['use_more'] = TRUE;
