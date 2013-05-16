@@ -71,5 +71,24 @@ function gsb_feature_club_display_form_alter(&$form, &$form_state, $form_id) {
         ':input[name="exposed[club_filter_by]"]' => array('value' => 'tid'),
       ),
     );
+
+    // Add override values callback absolutely first.
+    array_unshift($form['#submit'], 'gsb_feature_club_display_club_nid_tid_pane_submit');
+  }
+}
+
+/**
+ * Form callback.
+ *
+ * Keep only 1 contextual filter at a time, unset the other.
+ */
+function gsb_feature_club_display_club_nid_tid_pane_submit($form, &$form_state) {
+  switch ($form_state['values']['exposed']['club_filter_by']) {
+    case 'nid':
+      $form_state['values']['exposed']['term_node_tid_depth'] = '';
+      break;
+    case 'tid':
+      $form_state['values']['exposed']['nid'] = '';
+      break;
   }
 }
