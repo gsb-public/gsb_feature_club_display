@@ -97,6 +97,7 @@ function gsb_feature_club_display_gsb_fpp_customizations_icons_alter(&$icons) {
   $module_path = drupal_get_path('module', 'gsb_feature_club_display');
   $icons_settings = array(
     'views_panes:club_filters-club_by_id_or_tag' => 'club-by-id-or-tag.jpg',     
+    'views_panes:club_filters-club_list' => 'Club_filters_club_list.png',       
   );
   foreach($icons_settings as $key => $value) {
     if (isset($icons[$key]['icon'])) {
