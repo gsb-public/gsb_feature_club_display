@@ -92,3 +92,15 @@ function gsb_feature_club_display_club_nid_tid_pane_submit($form, &$form_state) 
       break;
   }
 }
+
+function gsb_feature_club_display_gsb_fpp_customizations_icons_alter(&$icons) {
+  $module_path = drupal_get_path('module', 'gsb_feature_club_display');
+  $icons_settings = array(
+    'views_panes:club_filters-club_by_id_or_tag' => 'club-by-id-or-tag.jpg',     
+  );
+  foreach($icons_settings as $key => $value) {
+    if (isset($icons[$key]['icon'])) {
+      $icons[$key]['icon'] = $module_path . '/images/' . $value;
+    }
+  }
+}
