@@ -27,3 +27,10 @@ features[ds_layout_settings][] = node|club|teaser
 features[features_api][] = api:1
 features[page_manager_pages][] = club_search_page
 features[views_view][] = club_filters
+
+
+; Information added by drush on 2013-06-14
+version = "master-dev"
+project = "gsb_feature_club_display"
+datestamp = "1371226792"
+
