@@ -49,13 +49,21 @@ function gsb_feature_club_display_form_alter(&$form, &$form_state, $form_id) {
 
   // Alter 'Club add by ID or tag' content pane settings form.
   if ($form_id == 'views_content_views_panes_content_type_edit_form' && $form_state['pane']->subtype == 'club_filters-club_by_id_or_tag') {
+
+    $default_value = 'nid';
+    if (isset($form_state['pane'])) {
+      if (isset($form_state['pane']->configuration['exposed'])) {
+        $default_value = $form_state['pane']->configuration['exposed']['club_filter_by'];
+      }
+    }
+    
     $form['exposed']['club_filter_by'] = array(
       '#type' => 'radios',
       '#options' => array(
         'nid' => 'Node ID',
         'tid' => 'Term',
       ),
-      '#default_value' => 'nid',
+      '#default_value' => $default_value,
       '#weight' => -100,
     );
 
