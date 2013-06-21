@@ -79,6 +79,7 @@ function gsb_feature_club_display_form_alter(&$form, &$form_state, $form_id) {
         ':input[name="exposed[club_filter_by]"]' => array('value' => 'tid'),
       ),
     );
+    drupal_add_js(drupal_get_path('module', 'gsb_feature_club_display') . '/js/gsb_feature_club_display.js');
 
     // Add override values callback absolutely first.
     array_unshift($form['#submit'], 'gsb_feature_club_display_club_nid_tid_pane_submit');
