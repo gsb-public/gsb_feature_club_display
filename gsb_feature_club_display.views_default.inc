@@ -147,7 +147,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth_2']['group'] = 1;
   $handler->display->display_options['filters']['term_node_tid_depth_2']['exposed'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['operator_id'] = 'term_node_tid_depth_2_op';
-  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['label'] = 'Filter by';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['label'] = 'Type of Organization';
   $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['operator'] = 'term_node_tid_depth_2_op';
   $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['identifier'] = 'term_node_tid_depth_2';
   $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['multiple'] = TRUE;
