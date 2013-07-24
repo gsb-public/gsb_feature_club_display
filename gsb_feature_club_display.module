@@ -39,6 +39,8 @@ function gsb_feature_club_display_form_views_exposed_form_alter(&$form, &$form_s
   if ($form_state['view']->name == 'club_filters') {
     // Exclude the search text field from auto-submit.
     $form['search']['#attributes']['class'][] = 'ctools-auto-submit-exclude';
+    // Prefix for filters form.
+    $form['#prefix'] = '<strong>' . t('Filter by') . '</strong>';
   }
 }
 
@@ -56,7 +58,7 @@ function gsb_feature_club_display_form_alter(&$form, &$form_state, $form_id) {
         $default_value = $form_state['pane']->configuration['exposed']['club_filter_by'];
       }
     }
-    
+
     $form['exposed']['club_filter_by'] = array(
       '#type' => 'radios',
       '#options' => array(
@@ -105,8 +107,8 @@ function gsb_feature_club_display_club_nid_tid_pane_submit($form, &$form_state) 
 function gsb_feature_club_display_gsb_fpp_customizations_icons_alter(&$icons) {
   $module_path = drupal_get_path('module', 'gsb_feature_club_display');
   $icons_settings = array(
-    'views_panes:club_filters-club_by_id_or_tag' => 'club-by-id-or-tag.jpg',     
-    'views_panes:club_filters-club_list' => 'Club_filters_club_list.png',       
+    'views_panes:club_filters-club_by_id_or_tag' => 'club-by-id-or-tag.jpg',
+    'views_panes:club_filters-club_list' => 'Club_filters_club_list.png',
   );
   foreach($icons_settings as $key => $value) {
     if (isset($icons[$key]['icon'])) {
