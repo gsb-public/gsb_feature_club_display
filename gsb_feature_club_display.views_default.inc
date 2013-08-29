@@ -251,7 +251,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['use_more_always'] = TRUE;
   $handler->display->display_options['defaults']['use_more_text'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'See All Clubs';
-  $handler->display->display_options['link_url'] = 'stanford-gsb-experience/life-stanford/activities-organizations';
+  $handler->display->display_options['link_url'] = 'stanford-gsb-experience/life-stanford-gsb/activities-organizations';
   $handler->display->display_options['defaults']['exposed_form'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['expose_sort_order'] = FALSE;
