@@ -11,7 +11,6 @@ dependencies[] = entity
 dependencies[] = features
 dependencies[] = gsb_feature_club_ct
 dependencies[] = page_manager
-dependencies[] = panopoly_core
 dependencies[] = strongarm
 dependencies[] = views
 dependencies[] = views_content
