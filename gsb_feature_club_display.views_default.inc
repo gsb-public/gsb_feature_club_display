@@ -147,47 +147,45 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth_2']['group'] = 1;
   $handler->display->display_options['filters']['term_node_tid_depth_2']['exposed'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['operator_id'] = 'term_node_tid_depth_2_op';
-  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['label'] = 'Filter by';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['label'] = 'Type of Organization';
   $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['operator'] = 'term_node_tid_depth_2_op';
   $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['identifier'] = 'term_node_tid_depth_2';
   $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['multiple'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
+    11 => 0,
+    16 => 0,
+    21 => 0,
+    61 => 0,
+    56 => 0,
+    71 => 0,
+    66 => 0,
+    26 => 0,
+    31 => 0,
+    36 => 0,
+    41 => 0,
+    46 => 0,
+    51 => 0,
+    81 => 0,
+    86 => 0,
+    91 => 0,
+    96 => 0,
+    101 => 0,
+    106 => 0,
+    116 => 0,
+    121 => 0,
+    126 => 0,
+    131 => 0,
+    136 => 0,
+    141 => 0,
+    146 => 0,
   );
   $handler->display->display_options['filters']['term_node_tid_depth_2']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth_2']['type'] = 'select';
   $handler->display->display_options['filters']['term_node_tid_depth_2']['vocabulary'] = 'club_category';
   $handler->display->display_options['filters']['term_node_tid_depth_2']['error_message'] = FALSE;
   $handler->display->display_options['filters']['term_node_tid_depth_2']['depth'] = '10';
-  /* Filter criterion: Content: Search field (field_search_field) */
-  $handler->display->display_options['filters']['field_search_field_value']['id'] = 'field_search_field_value';
-  $handler->display->display_options['filters']['field_search_field_value']['table'] = 'field_data_field_search_field';
-  $handler->display->display_options['filters']['field_search_field_value']['field'] = 'field_search_field_value';
-  $handler->display->display_options['filters']['field_search_field_value']['operator'] = 'contains';
-  $handler->display->display_options['filters']['field_search_field_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_search_field_value']['expose']['operator_id'] = 'field_search_field_value_op';
-  $handler->display->display_options['filters']['field_search_field_value']['expose']['label'] = 'Search';
-  $handler->display->display_options['filters']['field_search_field_value']['expose']['operator'] = 'field_search_field_value_op';
-  $handler->display->display_options['filters']['field_search_field_value']['expose']['identifier'] = 'search';
-  $handler->display->display_options['filters']['field_search_field_value']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-    7 => 0,
-    6 => 0,
-    8 => 0,
-    9 => 0,
-  );
-  $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_items'] = '10';
-  $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_suggestion'] = 1;
-  $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_dropdown'] = 1;
-  $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_dependent'] = 0;
 
   /* Display: Club list */
   $handler = $view->new_display('panel_pane', 'Club list', 'club_list');
@@ -196,29 +194,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* No results behavior: Global: Text area */
-  $handler->display->display_options['empty']['area']['id'] = 'area';
-  $handler->display->display_options['empty']['area']['table'] = 'views';
-  $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'no results found.';
-  $handler->display->display_options['empty']['area']['format'] = 'gsb_wysiwyg_text';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Tag (field_tag) */
-  $handler->display->display_options['arguments']['field_tag_tid']['id'] = 'field_tag_tid';
-  $handler->display->display_options['arguments']['field_tag_tid']['table'] = 'field_data_field_tag';
-  $handler->display->display_options['arguments']['field_tag_tid']['field'] = 'field_tag_tid';
-  $handler->display->display_options['arguments']['field_tag_tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_tag_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_tag_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_tag_tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_tag_tid']['specify_validation'] = TRUE;
-  $handler->display->display_options['arguments']['field_tag_tid']['validate']['type'] = 'taxonomy_term';
-  $handler->display->display_options['arguments']['field_tag_tid']['validate_options']['vocabularies'] = array(
-    'club_category' => 'club_category',
-  );
-  $handler->display->display_options['arguments']['field_tag_tid']['validate_options']['type'] = 'convert';
-  $handler->display->display_options['arguments']['field_tag_tid']['validate']['fail'] = 'ignore';
   $handler->display->display_options['pane_category']['name'] = 'Other';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
