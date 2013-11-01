@@ -59,13 +59,15 @@ function gsb_feature_club_display_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'title',
-        1 => 'field_search_field',
-        2 => 'field_link_single',
-        3 => 'field_body',
+        1 => 'field_email',
+        2 => 'field_search_field',
+        3 => 'field_link_single',
+        4 => 'field_body',
       ),
     ),
     'fields' => array(
       'title' => 'ds_content',
+      'field_email' => 'ds_content',
       'field_search_field' => 'ds_content',
       'field_link_single' => 'ds_content',
       'field_body' => 'ds_content',
@@ -77,6 +79,8 @@ function gsb_feature_club_display_ds_layout_settings_info() {
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
     'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
   );
   $export['node|club|teaser'] = $ds_layout;
 
