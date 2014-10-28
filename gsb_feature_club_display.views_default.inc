@@ -118,7 +118,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  /* Contextual filter: Content: Tag (field_tag) */
+  /* Contextual filter: Content: Keywords (field_tag) */
   $handler->display->display_options['arguments']['field_tag_tid']['id'] = 'field_tag_tid';
   $handler->display->display_options['arguments']['field_tag_tid']['table'] = 'field_data_field_tag';
   $handler->display->display_options['arguments']['field_tag_tid']['field'] = 'field_tag_tid';
@@ -226,7 +226,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = 'no results found.';
   $handler->display->display_options['empty']['area']['format'] = 'gsb_wysiwyg_text';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Tag (field_tag) */
+  /* Contextual filter: Content: Keywords (field_tag) */
   $handler->display->display_options['arguments']['field_tag_tid']['id'] = 'field_tag_tid';
   $handler->display->display_options['arguments']['field_tag_tid']['table'] = 'field_data_field_tag';
   $handler->display->display_options['arguments']['field_tag_tid']['field'] = 'field_tag_tid';
@@ -366,6 +366,77 @@ function gsb_feature_club_display_views_default_views() {
       'label' => 'Content: Tag (field_tag)',
     ),
   );
+
+  /* Display: Club Alumni list */
+  $handler = $view->new_display('panel_pane', 'Club Alumni list', 'club_alumni_list');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Stanford GSB Student Clubs';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'load_more';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['more_button_text'] = 'Show more';
+  $handler->display->display_options['pager']['options']['use_go_to_top_link'] = 1;
+  $handler->display->display_options['pager']['options']['use_go_to_top_text'] = 'Back to the Top';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Field: Title */
+  $handler->display->display_options['fields']['field_link_single']['id'] = 'field_link_single';
+  $handler->display->display_options['fields']['field_link_single']['table'] = 'field_data_field_link_single';
+  $handler->display->display_options['fields']['field_link_single']['field'] = 'field_link_single';
+  $handler->display->display_options['fields']['field_link_single']['label'] = '';
+  $handler->display->display_options['fields']['field_link_single']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_link_single']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_link_single']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_link_single']['settings'] = array(
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href=\'[field_link_single]\'>[title]</a>';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[title]';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'club' => 'club',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Mentioned (field_alumni_story) */
+  $handler->display->display_options['filters']['field_alumni_story_value']['id'] = 'field_alumni_story_value';
+  $handler->display->display_options['filters']['field_alumni_story_value']['table'] = 'field_data_field_alumni_story';
+  $handler->display->display_options['filters']['field_alumni_story_value']['field'] = 'field_alumni_story_value';
+  $handler->display->display_options['filters']['field_alumni_story_value']['operator'] = 'not empty';
+  $handler->display->display_options['pane_category']['name'] = 'Content panes';
+  $handler->display->display_options['pane_category']['weight'] = '0';
   $export['club_filters'] = $view;
 
   return $export;
