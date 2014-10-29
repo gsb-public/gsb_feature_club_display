@@ -435,10 +435,12 @@ function gsb_feature_club_display_views_default_views() {
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Mentioned (field_alumni_story) */
-  $handler->display->display_options['filters']['field_alumni_story_value']['id'] = 'field_alumni_story_value';
-  $handler->display->display_options['filters']['field_alumni_story_value']['table'] = 'field_data_field_alumni_story';
-  $handler->display->display_options['filters']['field_alumni_story_value']['field'] = 'field_alumni_story_value';
-  $handler->display->display_options['filters']['field_alumni_story_value']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['field_alumni_story_value_1']['id'] = 'field_alumni_story_value_1';
+  $handler->display->display_options['filters']['field_alumni_story_value_1']['table'] = 'field_data_field_alumni_story';
+  $handler->display->display_options['filters']['field_alumni_story_value_1']['field'] = 'field_alumni_story_value';
+  $handler->display->display_options['filters']['field_alumni_story_value_1']['value'] = array(
+    1 => '1',
+  );
   $handler->display->display_options['pane_category']['name'] = 'Content panes';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $export['club_filters'] = $view;
