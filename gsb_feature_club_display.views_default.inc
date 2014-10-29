@@ -100,6 +100,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['term_node_tid']['vocabularies'] = array(
     'academic_area' => 0,
     'business_insight_topic' => 0,
+    'panopoly_categories' => 0,
     'centers_research_programs' => 0,
     'club_category' => 0,
     'company_organization' => 0,
@@ -395,6 +396,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['field_link_single']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_link_single']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_link_single']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_link_single']['type'] = 'link_plain';
   $handler->display->display_options['fields']['field_link_single']['settings'] = array(
     'conditions' => array(
       0 => array(
@@ -407,11 +409,13 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href=\'[field_link_single]\'>[title]</a>';
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[title]';
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_link_single]';
+  $handler->display->display_options['fields']['title']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
