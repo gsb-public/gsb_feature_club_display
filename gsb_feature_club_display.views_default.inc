@@ -441,7 +441,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['filters']['field_alumni_story_value_1']['value'] = array(
     1 => '1',
   );
-  $handler->display->display_options['pane_title'] = 'Clubs for Alumni';
+  $handler->display->display_options['pane_title'] = 'Clubs: Alumni';
   $handler->display->display_options['pane_category']['name'] = 'Content panes';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $export['club_filters'] = $view;
