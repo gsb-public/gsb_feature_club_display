@@ -346,7 +346,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth']['vocabulary'] = 'club_category';
   $handler->display->display_options['filters']['term_node_tid_depth']['error_message'] = FALSE;
   $handler->display->display_options['filters']['term_node_tid_depth']['depth'] = '10';
-  $handler->display->display_options['pane_title'] = 'Club: by id or tag';
+  $handler->display->display_options['pane_title'] = 'Clubs: Node ID | Category';
   $handler->display->display_options['pane_category']['name'] = 'Content Panes';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
