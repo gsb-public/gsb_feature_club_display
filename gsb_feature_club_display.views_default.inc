@@ -348,7 +348,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth']['error_message'] = FALSE;
   $handler->display->display_options['filters']['term_node_tid_depth']['depth'] = '10';
   $handler->display->display_options['pane_title'] = 'Clubs: Node ID | Category';
-  $handler->display->display_options['pane_category']['name'] = 'Content Panes';
+  $handler->display->display_options['pane_category']['name'] = 'Customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
@@ -444,7 +444,7 @@ function gsb_feature_club_display_views_default_views() {
     1 => '1',
   );
   $handler->display->display_options['pane_title'] = 'Clubs: Alumni';
-  $handler->display->display_options['pane_category']['name'] = 'Content panes';
+  $handler->display->display_options['pane_category']['name'] = 'Non-customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $export['club_filters'] = $view;
 
