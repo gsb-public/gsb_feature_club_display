@@ -447,7 +447,6 @@ function gsb_feature_club_display_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Club by id or tag', 'club_by_id_or_tag');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['use_more'] = FALSE;
-  $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_always'] = TRUE;
