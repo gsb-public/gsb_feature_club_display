@@ -85,11 +85,11 @@ function gsb_feature_club_display_form_views_content_views_panes_content_type_ed
     $item['title_link'] = array(
       '#title' => t('URL'),
       '#type' => 'textfield',
-      '#weight' => -99,
+      '#weight' => -100,
       '#default_value' => !empty($conf['title_link']) ? $conf['title_link'] : '',
     );
-    $form['override_title']['#weight'] = -100;
-    $form = gsb_misc_fixes_associative_insert($form, 'override_title', $item);
+    $form['override_title']['#weight'] = -105;
+    $form = gsb_misc_fixes_associative_insert($form, 'override_title_text', $item);
 
     // Add override values callback absolutely first.
     array_unshift($form['#submit'], 'gsb_feature_club_display_club_nid_tid_pane_submit');
@@ -130,8 +130,8 @@ function gsb_feature_club_display_panels_pane_content_alter($content, $pane, $ar
 function gsb_feature_club_display_gsb_fpp_customizations_icons_alter(&$icons) {
   $module_path = drupal_get_path('module', 'gsb_feature_club_display');
   $icons_settings = array(
-    'views_panes:club_filters-club_by_id_or_tag' => 'club-by-id-or-tag.jpg',     
-    'views_panes:club_filters-club_list' => 'Club_filters_club_list.png',       
+    'views_panes:club_filters-club_by_id_or_tag' => 'club-by-id-or-tag.jpg',
+    'views_panes:club_filters-club_list' => 'Club_filters_club_list.png',
   );
   foreach($icons_settings as $key => $value) {
     if (isset($icons[$key]['icon'])) {
