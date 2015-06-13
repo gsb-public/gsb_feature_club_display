@@ -43,12 +43,12 @@ function gsb_feature_club_display_form_views_exposed_form_alter(&$form, &$form_s
 }
 
 /**
- * Implements hook_form_alter().
- */
-function gsb_feature_club_display_form_alter(&$form, &$form_state, $form_id) {
+  * Implements hook_form_FORM_ID_alter().
+  */
+function gsb_feature_club_display_form_views_content_views_panes_content_type_edit_form_alter(&$form, &$form_state) {
 
   // Alter 'Club add by ID or tag' content pane settings form.
-  if ($form_id == 'views_content_views_panes_content_type_edit_form' && $form_state['pane']->subtype == 'club_filters-club_by_id_or_tag') {
+  if ($form_state['pane']->subtype == 'club_filters-club_by_id_or_tag' && $form_state['view']->name == 'club_filters' && $form_state['view']->current_display == 'club_by_id_or_tag') {
 
     $default_value = 'nid';
     if (isset($form_state['pane'])) {
@@ -56,7 +56,7 @@ function gsb_feature_club_display_form_alter(&$form, &$form_state, $form_id) {
         $default_value = $form_state['pane']->configuration['exposed']['club_filter_by'];
       }
     }
-    
+
     $form['exposed']['club_filter_by'] = array(
       '#type' => 'radios',
       '#options' => array(
@@ -81,6 +81,16 @@ function gsb_feature_club_display_form_alter(&$form, &$form_state, $form_id) {
     );
     drupal_add_js(drupal_get_path('module', 'gsb_feature_club_display') . '/js/gsb_feature_club_display.js');
 
+    $conf = $form_state['conf'];
+    $item['title_link'] = array(
+      '#title' => t('URL'),
+      '#type' => 'textfield',
+      '#weight' => -99,
+      '#default_value' => !empty($conf['title_link']) ? $conf['title_link'] : '',
+    );
+    $form['override_title']['#weight'] = -100;
+    $form = gsb_misc_fixes_associative_insert($form, 'override_title', $item);
+
     // Add override values callback absolutely first.
     array_unshift($form['#submit'], 'gsb_feature_club_display_club_nid_tid_pane_submit');
   }
@@ -99,6 +109,21 @@ function gsb_feature_club_display_club_nid_tid_pane_submit($form, &$form_state) 
     case 'tid':
       $form_state['values']['exposed']['nid'] = '';
       break;
+  }
+  // Submit handler for views_content_views_panes_content_type_edit_form.
+  // - Save title link field in pane config.
+  $form_state['conf']['title_link'] = $form_state['values']['title_link'];
+}
+
+/**
+ * Implements hook_panels_pane_content_alter().
+ *  - Alter 'Club add by ID or tag' content pane title to be linked to a custom URL.
+ */
+function gsb_feature_club_display_panels_pane_content_alter($content, $pane, $args, $context) {
+  if ($content && $content->subtype == 'club_filters-club_by_id_or_tag') {
+    if (!empty($pane->configuration['title_link'])) {
+      $content->title = l($content->title, $pane->configuration['title_link']);
+    }
   }
 }
 
