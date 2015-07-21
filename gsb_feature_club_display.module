@@ -50,37 +50,6 @@ function gsb_feature_club_display_form_views_content_views_panes_content_type_ed
   // Alter 'Club add by ID or tag' content pane settings form.
   if ($form_state['pane']->subtype == 'club_filters-club_by_id_or_tag' && $form_state['view']->name == 'club_filters' && $form_state['view']->current_display == 'club_by_id_or_tag') {
 
-    $default_value = 'nid';
-    if (isset($form_state['pane'])) {
-      if (isset($form_state['pane']->configuration['exposed'])) {
-        $default_value = $form_state['pane']->configuration['exposed']['club_filter_by'];
-      }
-    }
-
-    $form['exposed']['club_filter_by'] = array(
-      '#type' => 'radios',
-      '#options' => array(
-        'nid' => 'Node ID',
-        'tid' => 'Term',
-      ),
-      '#default_value' => $default_value,
-      '#weight' => -100,
-    );
-
-    $form['exposed']['filter-nid']['#states'] = array(
-      'visible' => array(
-        ':input[name="exposed[club_filter_by]"]' => array('value' => 'nid'),
-      ),
-    );
-    // Change #id to apply #states.
-    $form['exposed']['filter-term_node_tid_depth']['#id'] = 'views-exposed-pane-tid';
-    $form['exposed']['filter-term_node_tid_depth']['#states'] = array(
-      'visible' => array(
-        ':input[name="exposed[club_filter_by]"]' => array('value' => 'tid'),
-      ),
-    );
-    drupal_add_js(drupal_get_path('module', 'gsb_feature_club_display') . '/js/gsb_feature_club_display.js');
-
     $conf = $form_state['conf'];
     $item['title_link'] = array(
       '#title' => t('URL'),
@@ -88,7 +57,7 @@ function gsb_feature_club_display_form_views_content_views_panes_content_type_ed
       '#weight' => -100,
       '#default_value' => !empty($conf['title_link']) ? $conf['title_link'] : '',
     );
-    $form['override_title']['#weight'] = -105;
+    $form['override_title']['#weight'] = -99;
     $form = gsb_misc_fixes_associative_insert($form, 'override_title_text', $item);
 
     // Add override values callback absolutely first.
@@ -102,14 +71,7 @@ function gsb_feature_club_display_form_views_content_views_panes_content_type_ed
  * Keep only 1 contextual filter at a time, unset the other.
  */
 function gsb_feature_club_display_club_nid_tid_pane_submit($form, &$form_state) {
-  switch ($form_state['values']['exposed']['club_filter_by']) {
-    case 'nid':
-      $form_state['values']['exposed']['term_node_tid_depth'] = '';
-      break;
-    case 'tid':
-      $form_state['values']['exposed']['nid'] = '';
-      break;
-  }
+
   // Submit handler for views_content_views_panes_content_type_edit_form.
   // - Save title link field in pane config.
   $form_state['conf']['title_link'] = $form_state['values']['title_link'];
