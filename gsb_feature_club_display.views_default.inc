@@ -617,6 +617,15 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['break_phrase'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
@@ -638,66 +647,6 @@ function gsb_feature_club_display_views_default_views() {
     'club' => 'club',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Nid */
-  $handler->display->display_options['filters']['nid']['id'] = 'nid';
-  $handler->display->display_options['filters']['nid']['table'] = 'node';
-  $handler->display->display_options['filters']['nid']['field'] = 'nid';
-  $handler->display->display_options['filters']['nid']['group'] = 2;
-  $handler->display->display_options['filters']['nid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['nid']['expose']['operator_id'] = 'nid_op';
-  $handler->display->display_options['filters']['nid']['expose']['label'] = 'Node IDs';
-  $handler->display->display_options['filters']['nid']['expose']['operator'] = 'nid_op';
-  $handler->display->display_options['filters']['nid']['expose']['identifier'] = 'nid';
-  $handler->display->display_options['filters']['nid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    11 => 0,
-    151 => 0,
-    16 => 0,
-    21 => 0,
-    241 => 0,
-    71 => 0,
-    61 => 0,
-    171 => 0,
-    56 => 0,
-    66 => 0,
-    201 => 0,
-    221 => 0,
-    216 => 0,
-    226 => 0,
-    231 => 0,
-    246 => 0,
-    236 => 0,
-    31 => 0,
-    36 => 0,
-    41 => 0,
-    91 => 0,
-    146 => 0,
-    136 => 0,
-    26 => 0,
-    46 => 0,
-    51 => 0,
-    81 => 0,
-    86 => 0,
-    96 => 0,
-    101 => 0,
-    106 => 0,
-    116 => 0,
-    121 => 0,
-    126 => 0,
-    131 => 0,
-    141 => 0,
-    156 => 0,
-    161 => 0,
-    166 => 0,
-    176 => 0,
-    181 => 0,
-    186 => 0,
-    191 => 0,
-    206 => 0,
-    211 => 0,
-    251 => 0,
-  );
   /* Filter criterion: Content: Club Category (field_club_category) */
   $handler->display->display_options['filters']['field_club_category_tid']['id'] = 'field_club_category_tid';
   $handler->display->display_options['filters']['field_club_category_tid']['table'] = 'field_data_field_club_category';
@@ -774,13 +723,13 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
   $handler->display->display_options['allow']['fields_override'] = 0;
   $handler->display->display_options['argument_input'] = array(
-    'field_tag_tid' => array(
-      'type' => 'panel',
-      'context' => 'entity:field_collection_item.field_cta_action',
+    'nid' => array(
+      'type' => 'user',
+      'context' => 'entity:field_collection_item.field-address',
       'context_optional' => 0,
       'panel' => '0',
       'fixed' => '',
-      'label' => 'Content: Tag (field_tag)',
+      'label' => 'Node IDs',
     ),
   );
 

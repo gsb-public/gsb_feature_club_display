@@ -50,6 +50,11 @@ function gsb_feature_club_display_form_views_content_views_panes_content_type_ed
   // Alter 'Club add by ID or tag' content pane settings form.
   if ($form_state['pane']->subtype == 'club_filters-club_by_id_or_tag' && $form_state['view']->name == 'club_filters' && $form_state['view']->current_display == 'club_by_id_or_tag') {
 
+    $form['arguments']['nid']['#description'] = 'Separate Node IDs with commas and no spaces.';
+    $form['exposed']['arguments'] = $form['arguments'];
+    $form['exposed']['arguments']['#weight'] = -98;
+    $form['arguments']['#access'] = FALSE;
+
     $conf = $form_state['conf'];
     $item['title_link'] = array(
       '#title' => t('URL'),
@@ -57,9 +62,10 @@ function gsb_feature_club_display_form_views_content_views_panes_content_type_ed
       '#weight' => -100,
       '#default_value' => !empty($conf['title_link']) ? $conf['title_link'] : '',
     );
-    $form['override_title']['#weight'] = -99;
+    $form['override_title']['#weight'] = -105;
     $form = gsb_misc_fixes_associative_insert($form, 'override_title_text', $item);
 
+    $form['#validate'][] = 'gsb_feature_club_display_pane_config_validate';
     // Add override values callback absolutely first.
     array_unshift($form['#submit'], 'gsb_feature_club_display_club_nid_tid_pane_submit');
   }
@@ -75,6 +81,16 @@ function gsb_feature_club_display_club_nid_tid_pane_submit($form, &$form_state) 
   // Submit handler for views_content_views_panes_content_type_edit_form.
   // - Save title link field in pane config.
   $form_state['conf']['title_link'] = $form_state['values']['title_link'];
+}
+
+/**
+ * Validate handler for views_content_views_panes_content_type_edit_form.
+ *  - Stores the arguments nid field values in pane config.
+ */
+function gsb_feature_club_display_pane_config_validate(&$form, &$form_state) {
+  if (!empty($form_state['values']['exposed'])) {
+    $form_state['values']['arguments']['nid'] = $form_state['values']['exposed']['arguments']['nid'];
+  }
 }
 
 /**
