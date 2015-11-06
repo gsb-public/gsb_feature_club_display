@@ -39,6 +39,18 @@ function gsb_feature_club_display_form_views_exposed_form_alter(&$form, &$form_s
   if ($form_state['view']->name == 'club_filters') {
     // Exclude the search text field from auto-submit.
     $form['search']['#attributes']['class'][] = 'ctools-auto-submit-exclude';
+
+    if ($form_state['view']->current_display == 'club_list') {
+      $form['#action'] = '';
+      $form['secondary']['done'] = array(
+        '#type' => 'submit',
+        '#value' => t('Done'),
+      );
+      $form['secondary']['clear-all'] = array(
+        '#type' => 'button',
+        '#value' => t('Clear All'),
+      );
+    }
   }
 }
 
