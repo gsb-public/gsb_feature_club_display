@@ -199,7 +199,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  /* Contextual filter: Content: Keywords (field_tag) */
+  /* Contextual filter: Field: Keywords (field_tag) */
   $handler->display->display_options['arguments']['field_tag_tid']['id'] = 'field_tag_tid';
   $handler->display->display_options['arguments']['field_tag_tid']['table'] = 'field_data_field_tag';
   $handler->display->display_options['arguments']['field_tag_tid']['field'] = 'field_tag_tid';
@@ -429,7 +429,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = 'no results found.';
   $handler->display->display_options['empty']['area']['format'] = 'gsb_wysiwyg_text';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Keywords (field_tag) */
+  /* Contextual filter: Field: Keywords (field_tag) */
   $handler->display->display_options['arguments']['field_tag_tid']['id'] = 'field_tag_tid';
   $handler->display->display_options['arguments']['field_tag_tid']['table'] = 'field_data_field_tag';
   $handler->display->display_options['arguments']['field_tag_tid']['field'] = 'field_tag_tid';
@@ -766,7 +766,7 @@ function gsb_feature_club_display_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Field: Title */
+  /* Field: Field: URL */
   $handler->display->display_options['fields']['field_link_single']['id'] = 'field_link_single';
   $handler->display->display_options['fields']['field_link_single']['table'] = 'field_data_field_link_single';
   $handler->display->display_options['fields']['field_link_single']['field'] = 'field_link_single';
